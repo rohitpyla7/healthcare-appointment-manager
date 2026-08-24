@@ -1,0 +1,2 @@
+import { getSession } from "@/lib/auth"; import { prisma } from "@/lib/prisma"; import { error,ok } from "@/lib/http";
+export async function GET(){const s=await getSession();if(!s)return error("Unauthorized",401);const u=await prisma.user.findUnique({where:{id:s.userId},include:{doctor:true}});if(!u)return error("Unauthorized",401);return ok({user:{id:u.id,name:u.name,email:u.email,phone:u.phone,role:u.role,doctor:u.doctor}});}

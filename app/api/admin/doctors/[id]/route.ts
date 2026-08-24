@@ -1,0 +1,2 @@
+import { prisma } from "@/lib/prisma"; import { requireUser } from "@/lib/auth"; import { error,ok } from "@/lib/http";
+export async function PATCH(req:Request,{params}:{params:Promise<{id:string}>}){try{await requireUser("ADMIN");const {id}=await params;const body=await req.json();const d=await prisma.doctorProfile.update({where:{id},data:{specialisation:body.specialisation,bio:body.bio,slotDuration:body.slotDuration,workingHours:body.workingHours}});return ok({doctor:d});}catch{return error("Could not update doctor",400);}}

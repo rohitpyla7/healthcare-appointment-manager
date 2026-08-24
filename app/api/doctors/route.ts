@@ -1,0 +1,2 @@
+import { prisma } from "@/lib/prisma"; import { ok } from "@/lib/http";
+export async function GET(req:Request){const specialisation=new URL(req.url).searchParams.get("specialisation")||undefined;const doctors=await prisma.doctorProfile.findMany({where:specialisation?{specialisation:{contains:specialisation,mode:"insensitive"}}:undefined,include:{user:{select:{id:true,name:true,email:true}}},orderBy:{specialisation:"asc"}});return ok({doctors});}
