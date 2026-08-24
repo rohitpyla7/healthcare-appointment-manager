@@ -1,3 +1,28 @@
+## Live Demo
+
+Production: https://your-vercel-domain.vercel.app
+
+## Key Features
+
+- Role-based patient, doctor and admin portals
+- Race-condition-safe appointment booking
+- Temporary appointment slot holds
+- AI-powered pre-visit triage summaries
+- AI-generated post-visit summaries
+- Smart appointment recommendations
+- Doctor leave conflict resolution
+- Email notifications with retry handling
+- Google Calendar OAuth integration
+- Background worker for reminders and failed jobs
+
+## Architecture
+
+Next.js → API Routes → Prisma ORM → PostgreSQL/Neon
+
+Background Worker → Notifications / Reminders / Calendar Jobs
+
+LLM Integration → Pre-visit & Post-visit summaries
+
 # Healthcare Appointment & Follow-up Manager
 
 A full-stack healthcare appointment platform with patient, doctor and admin portals. It supports safe slot booking, symptom intake, AI summaries, post-visit summaries, medication reminders, email notifications and Google Calendar integration.
